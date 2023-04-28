@@ -1,0 +1,81 @@
+<div style="width: 60%; margin: 20px auto">
+  <form [formGroup]="vehicleForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="shipping-card">
+      <mat-card-header>
+        <div class="shipping-title">
+          <mat-card-title>Add new vehicle</mat-card-title>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="VIN" formControlName="vin">
+              <mat-error *ngIf="vehicleForm.controls['vin'].hasError('required')">
+                VIN is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="year" type="number" formControlName="year">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="model" formControlName="model">
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Inspection Date" [matDatepicker]="picker1" autocomplete="off" formControlName="inspectionDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 color="primary"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Inspection name" formControlName="inspectorName">
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Inspection location" formControlName="inspectionLocation">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <mat-form-field class="full-width">
+              <textarea matInput rows="4" placeholder="Notes" formControlName="notes"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-checkbox formControlName="pass">Pass</mat-checkbox>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Maker" formControlName="makerId">
+                <mat-option *ngFor="let maker of makers" [value]="maker.id">
+                  {{ maker.name }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="vehicleForm.controls['makerId'].hasError('required')">
+                State is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button style="margin-right: 10px; margin-left: auto;" mat-raised-button color="primary" type="submit">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  <div>Values</div>
+  <div>{{ vehicleForm.value | json }}</div>
+</div>

@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div class="header">
+    Vehicle Detail   
+    <div style="margin-left: 20p;">
+      <button mat-raised-button color="primary" (click)="onEdit()">
+        Edit
+      </button>
+    </div>
+    <div style="margin-left: 20p;">
+      <button mat-raised-button style="background-color: red; color: white" (click)="onDelete()">
+        Delete
+      </button>
+    </div>
+  </div>
+  <div *ngIf="vehicle" style="display: flex; gap: 10px; flex-direction: column; padding: 20px">
+    <div class="row">
+      <div class="row-left">VIN</div>
+      <div class="row-right">{{ vehicle.vin }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Model</div>
+      <div class="row-right">{{ vehicle.model }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Year</div>
+      <div class="row-right">{{ vehicle.year }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Pass</div>
+      <div class="row-right">{{ vehicle.pass }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Inspection Date</div>
+      <div class="row-right">{{ vehicle.inspectionDate | date :'shortDate' }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Inspector Name</div>
+      <div class="row-right">{{ vehicle.inspectorName }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Inspection Location</div>
+      <div class="row-right">{{ vehicle.inspectionLocation }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Maker</div>
+      <div class="row-right">{{ vehicle.makerName }} </div>
+    </div>
+    <div class="row">
+      <div class="row-left">Notes</div>
+      <div class="row-right">{{ vehicle.notes }} </div>
+    </div>
+
+  </div>
+</div>

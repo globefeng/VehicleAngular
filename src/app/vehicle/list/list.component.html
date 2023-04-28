@@ -1,0 +1,45 @@
+<div class="container">
+  <div style="margin: 20px 0px;">
+    <button mat-raised-button color="primary" (click)="onAdd()">
+      Add new vehicle
+    </button>
+  </div>
+
+  <div class="table-row" style="font-weight: bold; background-color: #d2d5d8;">
+    <div style="flex: 1">VIN</div>
+    <div style="flex: 1">Model</div>
+    <div style="flex: 1">Year</div>
+    <div style="flex: 1">Inspection Date</div>
+    <div style="flex: 1">Inspection Name</div>
+    <div style="flex: 1">Inspection Location</div>
+    <div style="flex: 1">Pass</div>
+  </div>
+
+  <div *ngFor="let vehicle of vehicles">
+    <a [routerLink]="['/vehicles', vehicle.vin]" style="text-decoration: none; color: black">
+      <div class="table-row">
+        <div style="flex: 1">
+          <div>{{ vehicle.vin }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.model }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.year }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.inspectionDate | date :'shortDate' }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.inspectorName }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.inspectionLocation }}</div>
+        </div>
+        <div style="flex: 1">
+          <div>{{ vehicle.pass }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
