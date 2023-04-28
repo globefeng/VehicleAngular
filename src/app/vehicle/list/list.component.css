@@ -16,6 +16,11 @@
   padding: 10px 0px;
 }
 
+.table-cell {
+  flex: 1;
+  padding: 10px;
+}
+
 .table-row:hover {
   background-color: #f2f5f8;
   cursor: pointer;

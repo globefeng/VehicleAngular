@@ -6,37 +6,37 @@
   </div>
 
   <div class="table-row" style="font-weight: bold; background-color: #d2d5d8;">
-    <div style="flex: 1">VIN</div>
-    <div style="flex: 1">Model</div>
-    <div style="flex: 1">Year</div>
-    <div style="flex: 1">Inspection Date</div>
-    <div style="flex: 1">Inspection Name</div>
-    <div style="flex: 1">Inspection Location</div>
-    <div style="flex: 1">Pass</div>
+    <div class="table-cell">VIN</div>
+    <div class="table-cell">Model</div>
+    <div class="table-cell">Year</div>
+    <div class="table-cell">Inspection Date</div>
+    <div class="table-cell">Inspection Name</div>
+    <div class="table-cell">Inspection Location</div>
+    <div class="table-cell">Pass</div>
   </div>
 
   <div *ngFor="let vehicle of vehicles">
     <a [routerLink]="['/vehicles', vehicle.vin]" style="text-decoration: none; color: black">
       <div class="table-row">
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.vin }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.model }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.year }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.inspectionDate | date :'shortDate' }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.inspectorName }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.inspectionLocation }}</div>
         </div>
-        <div style="flex: 1">
+        <div class="table-cell">
           <div>{{ vehicle.pass }}</div>
         </div>
       </div>
